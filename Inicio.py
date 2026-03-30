@@ -15,7 +15,6 @@ El pollo asado se hornea con ajo, limón y hierbas aromáticas.
 La sopa de lentejas se cocina con verduras y especias.
 El pan artesanal se elabora con harina, agua, sal y levadura."""
 
-# Stemmer en español
 stemmer = SnowballStemmer("spanish")
 
 def tokenize_and_stem(text):
@@ -25,37 +24,35 @@ def tokenize_and_stem(text):
     stems = [stemmer.stem(t) for t in tokens]
     return stems
 
-# Layout en dos columnas
 col1, col2 = st.columns([2, 1])
 
 with col1:
     text_input = st.text_area("📝 Documentos (uno por línea):", default_docs, height=150)
-    question = st.text_input("❓ Escribe tu pregunta:", "arroz azafrán mariscos")
+    question = st.text_input("❓ Escribe tu pregunta:", "¿Con qué ingredientes se prepara la paella?")
 
 with col2:
     st.markdown("### 💡 Preguntas sugeridas:")
 
-    if st.button("arroz azafrán mariscos", use_container_width=True):
-        st.session_state.question = "arroz azafrán mariscos"
+    if st.button("¿Con qué ingredientes se prepara la paella?", use_container_width=True):
+        st.session_state.question = "¿Con qué ingredientes se prepara la paella?"
         st.rerun()
 
-    if st.button("leche cacao chocolate", use_container_width=True):
-        st.session_state.question = "leche cacao chocolate"
+    if st.button("¿Con qué se hace el chocolate caliente?", use_container_width=True):
+        st.session_state.question = "¿Con qué se hace el chocolate caliente?"
         st.rerun()
 
-    if st.button("lechuga tomate ensalada", use_container_width=True):
-        st.session_state.question = "lechuga tomate ensalada"
+    if st.button("¿Qué lleva la ensalada?", use_container_width=True):
+        st.session_state.question = "¿Qué lleva la ensalada?"
         st.rerun()
 
-    if st.button("pollo ajo limón horno", use_container_width=True):
-        st.session_state.question = "pollo ajo limón horno"
+    if st.button("¿Cómo se hornea el pollo asado?", use_container_width=True):
+        st.session_state.question = "¿Cómo se hornea el pollo asado?"
         st.rerun()
 
-    if st.button("lentejas verduras sopa", use_container_width=True):
-        st.session_state.question = "lentejas verduras sopa"
+    if st.button("¿Con qué se cocina la sopa de lentejas?", use_container_width=True):
+        st.session_state.question = "¿Con qué se cocina la sopa de lentejas?"
         st.rerun()
 
-# Actualizar pregunta si se seleccionó una sugerida
 if 'question' in st.session_state:
     question = st.session_state.question
 
